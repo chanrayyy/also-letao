@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
   <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/category.css">
+  <link rel="stylesheet" href="./css/search.css">
   <link rel="icon" href="./favicon.ico">
   <title>Document</title>
 </head>
@@ -16,33 +16,18 @@
 <body>
   <div class="lt-container">
     <header class="lt-header">
-        <a href="index.html"><i class="mui-icon mui-icon-home pull-left"></i></a>
-        乐淘电商
-        <a href="search.html"><i class="mui-icon mui-icon-search pull-right"></i></a>
+      <a href="javascript:history.go(-1);"><i class="mui-icon mui-icon-back mui-pull-left"></i></a>
+      搜索
+      <!-- <a href="search.html"><i class="mui-icon mui-icon-search pull-right"></i></a> -->
     </header>
 
     <main class="lt-main">
-
-      <div class="lt-main-left">
-        <div class="mui-scroll-wrapper">
-          <div class="mui-scroll">
-            <ul>
-              
-            </ul>
-
-          </div>
-        </div>
+      <div class="lt-search">
+        <input type="text" placeholder="请输入搜索内容" class="search-input">
+        <button class="mui-btn mui-btn-primary search-btn">搜索</button>
       </div>
-
-      <div class="lt-main-right">
-        <div class="mui-scroll-wrapper">
-          <div class="mui-scroll">
-            <ul>
-              
-            </ul>
-
-          </div>
-        </div>
+      <div class="lt-history">
+        
       </div>
     </main>
 
@@ -52,7 +37,7 @@
             <i class="fa fa-home"></i>
             <p>首页</p>
           </a></li>
-        <li class="current"><a href='#'>
+        <li><a href='category.html'>
             <i class="fa fa-bars"></i>
             <p>分类页</p>
           </a></li>
@@ -67,29 +52,29 @@
       </ul>
     </footer>
   </div>
-
-
-  <script type="text/html" id="tmp-left">
-  {{each rows v i}}
-    <li data-id='{{v.id}}'><a href="#">{{v.categoryName}}</a></li>
-  {{/each}}
-  </script>
-
-  <script type="text/html" id="tmp-right">
-    {{if rows.length === 0}}
-    <p class='nomore'>没有更多数据了</p>
-    {{else}}
-  {{each rows v i}}
-    <li><a href="#"><img src="{{v.brandLogo}}" alt=""><p>{{v.brandName}}</p></a></li>
-  {{/each}}  
-  {{/if}}
-  
+  <script type="text/html" id="tmp">
+  {{if arr.length === 0 }}
+    <p>没有搜索记录</p>
+  {{else}}
+    <span class="miu-pull-left">搜索历史</span>
+    <span class="mui-pull-right btn-deleteAll"><i class="mui-icon mui-icon-trash"></i>清空历史</span>
+    {{/if}}
+    {{each arr v i}}
+    <div class="content">
+      <ul>
+        <li>
+          <a href="#" class="mui-pull-left"> {{v}} </a>
+          <i data-index='{{i}}' class="mui-pull-right mui-icon mui-icon-closeempty btn-delete"></i>
+        </li>
+      </ul>
+    </div>
+    {{/each}}
   </script>
   <script src="./lib/zepto/zepto.min.js"></script>
   <script src="./lib/artTemplate/template-web.js"></script>
   <script src="./lib/mui/js/mui.js"></script>
   <script src="./js/common.js"></script>
-  <script src="./js/category.js"></script>
+  <script src="./js/search.js"></script>
 </body>
 
 </html>

@@ -18,7 +18,7 @@ img {
   max-width: 640px;
   min-width: 320px;
   margin: 0 auto;
-  background-color: skyblue;
+  background-color: #fff;
   padding: 45px 0 55px 0;
   position: relative;
 }
@@ -35,18 +35,21 @@ img {
   color: #fff;
   z-index: 999;
 }
-.lt-container .lt-header i {
+.lt-container .lt-header a {
   display: block;
   width: 24px;
   height: 24px;
+  color: #fff;
+}
+.lt-container .lt-header a i {
   font-weight: 700;
 }
-.lt-container .lt-header i:first-child {
+.lt-container .lt-header a:first-child {
   position: absolute;
   top: 10px;
   left: 10px;
 }
-.lt-container .lt-header i:last-child {
+.lt-container .lt-header a:last-child {
   position: absolute;
   top: 10px;
   right: 10px;
